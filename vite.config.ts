@@ -4,6 +4,7 @@
   import path from 'path';
 
   export default defineConfig({
+      base: '/Test/',   // ✅ 여기 한 줄 추가! (리포 이름과 정확히 일치해야 함)
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],

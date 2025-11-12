@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIKI Inc. - 회사 소개</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(30, 58, 138, 0.9), rgba(37, 99, 235, 0.7));
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold">K</span>
+                    </div>
+                    <span class="font-bold text-lg">KIKI Inc.</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="hover:text-blue-600 transition-colors">홈</a>
+                    <a href="#about" class="hover:text-blue-600 transition-colors">회사소개</a>
+                    <a href="#services" class="hover:text-blue-600 transition-colors">서비스</a>
+                    <a href="#team" class="hover:text-blue-600 transition-colors">팀</a>
+                    <a href="#contact" class="hover:text-blue-600 transition-colors">연락처</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav id="mobileMenu" class="mobile-menu md:hidden border-t">
+                <div class="flex flex-col gap-4 py-4">
+                    <a href="#home" class="hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">홈</a>
+                    <a href="#about" class="hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">회사소개</a>
+                    <a href="#services" class="hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">서비스</a>
+                    <a href="#team" class="hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">팀</a>
+                    <a href="#contact" class="hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">연락처</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1694702740570-0a31ee1525c7?w=1920&q=80" alt="Hero background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="container mx-auto px-4 z-10 text-white text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto">
+                혁신과 창의성으로<br>미래를 만들어갑니다
+            </h1>
+            <p class="text-lg md:text-xl mb-8 text-blue-50 max-w-2xl mx-auto">
+                KIKI Inc.는 최첨단 기술과 창의적인 솔루션으로 고객의 비즈니스 성공을 지원합니다
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#about" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                    자세히 알아보기
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+                    문의하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">회사 소개</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    KIKI Inc.는 기술과 사람을 연결하여 더 나은 미래를 만들어가는 혁신 기업입니다
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1709715357520-5e1047a2b691?w=800&q=80" alt="Team meeting" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">우리의 비전</h3>
+                    <p class="text-gray-600 mb-6">
+                        KIKI Inc.는 2020년 설립 이후, 혁신적인 기술과 창의적인 솔루션으로 
+                        산업의 디지털 전환을 선도해왔습니다. 우리는 고객의 성공이 곧 우리의 
+                        성공이라는 철학 아래, 최고의 서비스와 솔루션을 제공하기 위해 노력합니다.
+                    </p>
+                    <p class="text-gray-600">
+                        글로벌 시장에서의 경쟁력을 갖춘 전문가 팀과 함께, 우리는 지속 가능한 
+                        성장과 혁신을 통해 업계를 리드하는 기업으로 자리매김하고 있습니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">목표 중심</h4>
+                    <p class="text-gray-600 text-sm">명확한 목표 설정과 체계적인 실행으로 최상의 결과를 만들어냅니다</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">팀워크</h4>
+                    <p class="text-gray-600 text-sm">협력과 소통을 통해 시너지를 창출하고 함께 성장합니다</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">혁신</h4>
+                    <p class="text-gray-600 text-sm">끊임없는 도전과 창의적 사고로 새로운 가치를 창출합니다</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">전문성</h4>
+                    <p class="text-gray-600 text-sm">깊이 있는 전문 지식과 풍부한 경험으로 신뢰를 구축합니다</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">서비스</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    고객의 비즈니스 목표를 달성하기 위한 포괄적인 기술 솔루션을 제공합니다
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">웹 개발</h3>
+                    <p class="text-gray-600 mb-4">최신 기술 스택을 활용한 확장 가능하고 안정적인 웹 애플리케이션 개발</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            React/Next.js
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            백엔드 개발
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            API 통합
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">모바일 앱 개발</h3>
+                    <p class="text-gray-600 mb-4">iOS와 Android를 위한 네이티브 및 크로스 플랫폼 모바일 애플리케이션</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            React Native
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            Flutter
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            iOS/Android
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">UI/UX 디자인</h3>
+                    <p class="text-gray-600 mb-4">사용자 중심의 직관적이고 아름다운 인터페이스 디자인</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            사용자 리서치
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            프로토타이핑
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            디자인 시스템
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">클라우드 솔루션</h3>
+                    <p class="text-gray-600 mb-4">확장 가능하고 안전한 클라우드 인프라 구축 및 관리</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            AWS/Azure
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            DevOps
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            인프라 자동화
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">데이터베이스 설계</h3>
+                    <p class="text-gray-600 mb-4">효율적이고 안정적인 데이터베이스 아키텍처 설계 및 최적화</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            SQL/NoSQL
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            데이터 모델링
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            성능 최적화
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">비즈니스 분석</h3>
+                    <p class="text-gray-600 mb-4">데이터 기반 인사이트를 통한 비즈니스 의사결정 지원</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            데이터 분석
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            BI 대시보드
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                            리포팅
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">우리 팀</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    열정과 전문성을 갖춘 최고의 인재들이 함께합니다
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                    <div class="aspect-square overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" alt="김민수" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold mb-1">김민수</h4>
+                        <p class="text-blue-600 mb-3 text-sm">대표이사 / CEO</p>
+                        <p class="text-gray-600 text-sm">15년 이상의 IT 업계 경험을 바탕으로 회사를 이끌고 있습니다</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                    <div class="aspect-square overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400" alt="이지영" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold mb-1">이지영</h4>
+                        <p class="text-blue-600 mb-3 text-sm">CTO / 기술이사</p>
+                        <p class="text-gray-600 text-sm">클라우드 및 인프라 전문가로 기술 전략을 담당합니다</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                    <div class="aspect-square overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" alt="박준호" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold mb-1">박준호</h4>
+                        <p class="text-blue-600 mb-3 text-sm">개발팀장</p>
+                        <p class="text-gray-600 text-sm">풀스택 개발 전문가로 개발팀을 리드하고 있습니다</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+                    <div class="aspect-square overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="정수현" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold mb-1">정수현</h4>
+                        <p class="text-blue-600 mb-3 text-sm">디자인팀장</p>
+                        <p class="text-gray-600 text-sm">UX/UI 디자인 전문가로 사용자 경험을 설계합니다</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">50+</div>
+                    <p class="text-gray-600">전문 인력</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">100+</div>
+                    <p class="text-gray-600">완료 프로젝트</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">98%</div>
+                    <p class="text-gray-600">고객 만족도</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">연락처</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    궁금하신 사항이 있으시면 언제든지 문의해 주세요. 빠르게 답변드리겠습니다
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">문의하기</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 text-gray-700 font-medium">이름</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="홍길동">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-gray-700 font-medium">이메일</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="hong@example.com">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 text-gray-700 font-medium">제목</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="문의 제목을 입력하세요">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 text-gray-700 font-medium">메시지</label>
+                            <textarea id="message" name="message" required rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="문의 내용을 입력하세요"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            전송하기
+                        </button>
+                    </form>
+                </div>
+
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">오시는 길</h3>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">주소</p>
+                                    <p class="text-gray-600">
+                                        서울특별시 강남구 테헤란로 123<br>
+                                        KIKI 빌딩 5층
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">전화</p>
+                                    <p class="text-gray-600">02-1234-5678</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-1">이메일</p>
+                                    <p class="text-gray-600">contact@kiki-inc.jp</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-100 rounded-xl p-6">
+                        <h4 class="font-bold mb-4">운영 시간</h4>
+                        <div class="space-y-2 text-gray-600 text-sm">
+                            <div class="flex justify-between">
+                                <span>월요일 - 금요일</span>
+                                <span>09:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>토요일</span>
+                                <span>10:00 - 14:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>일요일 및 공휴일</span>
+                                <span>휴무</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">K</span>
+                        </div>
+                        <span class="text-white font-bold">KIKI Inc.</span>
+                    </div>
+                    <p class="text-gray-400 mb-4 text-sm">
+                        혁신과 창의성으로 미래를 만들어가는 기술 기업
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">회사</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-white transition-colors">회사소개</a></li>
+                        <li><a href="#team" class="hover:text-white transition-colors">팀</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">채용</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">블로그</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">서비스</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#services" class="hover:text-white transition-colors">웹 개발</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">모바일 앱</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">UI/UX 디자인</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">클라우드 솔루션</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">지원</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#contact" class="hover:text-white transition-colors">문의하기</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">고객지원</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">파트너십</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                    <p class="text-gray-400">
+                        © 2024 KIKI Inc. All rights reserved.
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">이용약관</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">쿠키정책</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('문의가 성공적으로 전송되었습니다!');
+            this.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
